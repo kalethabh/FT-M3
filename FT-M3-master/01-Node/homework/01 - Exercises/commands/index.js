@@ -52,13 +52,14 @@ function tail(print, args) {
 }
 
 function curl(print,args) {
-    args = 'http://' + args
-    utils.request(args,(error,response)=>{
-        if(error){
-            throw error
+    try {
+      utils.request(args, (error, response) => {
+        if (error) {
+          throw error;
         }
-        print(response)
-    })
+        print(response);
+      });
+    } catch (error) {}
 }
 
 
